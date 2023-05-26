@@ -1,6 +1,6 @@
 package cn.edu.guet.mvc;
 
-import cn.edu.guet.bean.User;
+
 import cn.edu.guet.ioc.BeanFactory;
 import com.google.gson.GsonBuilder;
 import org.apache.commons.beanutils.BeanUtils;
@@ -92,7 +92,6 @@ public class DispatcherServlet extends HttpServlet {
                     Map<String, String[]> parameterMap = request.getParameterMap();
                     //beanutils会自动将map里的key与bean的属性名进行反射赋值
                     BeanUtils.populate(pojo, parameterMap);
-                    User user=(User)pojo;
                     parameterValues[i] = pojo;
                 }
             }
