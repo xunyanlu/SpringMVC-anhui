@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans>
+    <bean id="planDesignController" class="cn.edu.guet.controller.PlanDesignController">
+        <property name="PlanDesignService" ref="PlanDesignService"></property>
+    </bean>
+
+    <bean id="PlanDesignService" class="cn.edu.guet.service.Impl.PlanDesignServiceImpl">
+        <property name="RouteCableDao" ref="RouteCableDao"></property>
+    </bean>
+    <bean id="RouteCableDao" class="cn.edu.guet.dao.impl.RouteCableDaoImpl"></bean>
+
+</beans>
