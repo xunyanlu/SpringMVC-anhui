@@ -126,7 +126,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
         int affectRow = 0;
         try {
 
-
+            pstmt = conn.prepareStatement(sql);
             pstmt.setObject(4, Id);
             Long id = Id;
 
@@ -209,7 +209,6 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
         List<T> objectList = new ArrayList<>();
         System.out.println("查找的SQL：" + sql);
         try {
-
             pstmt = conn.prepareStatement(sql);
 //            pstmt.setObject(1, id);
             ResultSet rs = pstmt.executeQuery();
@@ -245,6 +244,21 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
             e.printStackTrace();
         }
         return null;
+    }
+    @Override
+    public int deletedataByid(long id) {
+        int affectRow = 0;
+        String sql = "DELETE FROM " + persistentClass.getSimpleName().toLowerCase() + " WHERE id=?";
+        System.out.println(sql);
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setObject(1, id);
+            affectRow = pstmt.executeUpdate();
+            return affectRow;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return 0;
     }
 
 }

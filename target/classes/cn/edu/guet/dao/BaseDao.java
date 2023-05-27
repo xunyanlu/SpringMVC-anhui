@@ -18,6 +18,7 @@ public interface BaseDao<T> {
     int update(long Id,T t);
     T getObjectById(long id);
     List<T> getObjectById();
+    int deletedataByid(long id);
 
 
 }
