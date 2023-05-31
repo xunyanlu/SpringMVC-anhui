@@ -7,7 +7,9 @@
 
     <bean id="PlanDesignService" class="cn.edu.guet.service.Impl.PlanDesignServiceImpl">
         <property name="RouteCableDao" ref="RouteCableDao"></property>
+        <property name="PlanDesignDao" ref="PlanDesignDao"></property>
     </bean>
     <bean id="RouteCableDao" class="cn.edu.guet.dao.impl.RouteCableDaoImpl"></bean>
+    <bean id="PlanDesignDao" class="cn.edu.guet.dao.impl.PlanDesignDaoImpl"></bean>
 
 </beans>
